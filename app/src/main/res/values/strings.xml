@@ -30,4 +30,7 @@
     <string name="end_date">End Date</string>
     <string name="cover_image">Cover Image</string>
     <string name="create_events">CREATE EVENTS</string>
+    <string name="num_participants">Num.Participants</string>
+    <string name="your_location">Your Location</string>
+    <string name="location">Location</string>
 </resources>
