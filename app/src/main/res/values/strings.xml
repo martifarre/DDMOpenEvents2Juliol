@@ -12,12 +12,24 @@
     <string name="name">Name</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="password">Password</string>
-    <string name="password">Password</string>
     <string name="profile_picture">Profile Picture</string>
     <string name="create_account">Create Account</string>
-    <string name="your_email">Your email</string>
     <string name="your_first_name">Your first name</string>
     <string name="your_last_name">Your last name</string>
+    <string name="img_jpg">img.jpg</string>
+    <string name="events">Events</string>
+    <string name="attend">ATTEND</string>
+    <string name="create_event">Create Event</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="category">Category</string>
+    <string name="your_title">Your Title</string>
+    <string name="your_description">Your Description</string>
+    <string name="category">Category</string>
+    <string name="start_date">Start Date</string>
+    <string name="select_a_date">Select a Date</string>
+    <string name="end_date">End Date</string>
+    <string name="cover_image">Cover Image</string>
+    <string name="create_events">CREATE EVENTS</string>
     <string name="img_jpg">img.jpg</string>
 </resources>
