@@ -4,14 +4,14 @@ import java.io.Serializable;
 
 public class UserRegister implements Serializable {
     private String name;
-    private String surname;
+    private String last_name;
     private String email;
     private String password;
     private String image;
 
-    public UserRegister(String name, String surname, String email, String password, String image) {
+    public UserRegister(String name, String last_name, String email, String password, String image) {
         this.name = name;
-        this.surname = surname;
+        this.last_name = last_name;
         this.email = email;
         this.password = password;
         this.image = image;
@@ -29,11 +29,11 @@ public class UserRegister implements Serializable {
     }
 
     public String getSurname() {
-        return surname;
+        return last_name;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
+    public void setSurname(String last_name) {
+        this.last_name = last_name;
     }
 
     public String getEmail() {
