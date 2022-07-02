@@ -10,10 +10,10 @@ import android.view.ViewGroup;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link edit_event#newInstance} factory method to
+ * Use the {@link EditProfileFrag#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class edit_event extends Fragment {
+public class EditProfileFrag extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +24,7 @@ public class edit_event extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public edit_event() {
+    public EditProfileFrag() {
         // Required empty public constructor
     }
 
@@ -34,11 +34,11 @@ public class edit_event extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment edit_event.
+     * @return A new instance of fragment edit_profile.
      */
     // TODO: Rename and change types and number of parameters
-    public static edit_event newInstance(String param1, String param2) {
-        edit_event fragment = new edit_event();
+    public static EditProfileFrag newInstance(String param1, String param2) {
+        EditProfileFrag fragment = new EditProfileFrag();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +59,6 @@ public class edit_event extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_event, container, false);
+        return inflater.inflate(R.layout.fragment_edit_profile, container, false);
     }
 }

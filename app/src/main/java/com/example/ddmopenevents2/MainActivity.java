@@ -16,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager manager = getSupportFragmentManager();
         Fragment fragment = manager.findFragmentById(R.id.toPopulateWithFragment);
         if (fragment == null) {
-            fragment = new login_frag();
-            manager.beginTransaction().add(R.id.toPopulateWithFragment, fragment).addToBackStack(null).commit();
+            fragment = new LoginFrag();
+            manager.beginTransaction().add(R.id.toPopulateWithFragment, fragment).commit();
         }
     }
 }

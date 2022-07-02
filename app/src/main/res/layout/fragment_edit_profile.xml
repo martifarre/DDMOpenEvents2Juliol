@@ -5,7 +5,7 @@
     android:id="@+id/editProfile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".edit_profile" >
+    tools:context=".EditProfileFrag" >
 
     <TextView
         android:id="@+id/editProfileTitle"
