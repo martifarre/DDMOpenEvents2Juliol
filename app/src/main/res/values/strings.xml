@@ -33,4 +33,7 @@
     <string name="num_participants">Num.Participants</string>
     <string name="your_location">Your Location</string>
     <string name="location">Location</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_event">Edit Event</string>
+    <string name="edit_profile">Edit Profile</string>
 </resources>
