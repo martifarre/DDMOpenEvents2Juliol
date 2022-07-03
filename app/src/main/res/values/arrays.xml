@@ -11,4 +11,22 @@
         <item>Travel</item>
         <item>Others</item>
     </string-array>
+
+    <string-array name="spinnerValuesEvent">
+        <item>Filter</item>
+        <item>Cronologic ascenden</item>
+        <item>Localització</item>
+        <item>A-Z</item>
+        <item>Z-A</item>
+        <item>Categories</item>
+        <item>Education</item>
+        <item>Food</item>
+        <item>Sports</item>
+        <item>Concerts</item>
+        <item>Museums</item>
+        <item>Games</item>
+        <item>Travel</item>
+        <item>Others</item>
+
+    </string-array>
 </resources>

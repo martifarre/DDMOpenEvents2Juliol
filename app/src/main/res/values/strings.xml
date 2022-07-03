@@ -4,8 +4,6 @@
     <string name="TOKEN_ID">TOKEN_ID</string>
 
     <string name="app_name">DDMOpenEvents2</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email">Email</string>
     <string name="your_password">Your Password</string>
     <string name="password">Password</string>
@@ -49,4 +47,5 @@
     <string name="logout">Logout</string>
     <string name="search_users2">Search Users</string>
     <string name="users_results">Users Results:</string>
+    <string name="events_list">Events list:</string>
 </resources>
