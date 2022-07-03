@@ -31,7 +31,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationB
         setContentView(R.layout.activity_navigation);
         navigationView = findViewById(R.id.container);
         navigationView.setOnItemSelectedListener(this);
-        navigationView.setSelectedItemId(R.id.menu_my_profile);
+        navigationView.setSelectedItemId(R.id.menu_explore_events);
     }
 
     @Override
@@ -40,8 +40,8 @@ public class NavigationActivity extends AppCompatActivity implements NavigationB
         int id = item.getItemId();
 
         if (id == R.id.menu_my_profile) {
-            EditProfileFrag editProfileFrag = new EditProfileFrag();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_navigation, editProfileFrag).commit();
+            ProfileFrag profileFrag = new ProfileFrag();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_navigation, profileFrag).commit();
             return true;
         }
         if (id == R.id.menu_explore_events) {

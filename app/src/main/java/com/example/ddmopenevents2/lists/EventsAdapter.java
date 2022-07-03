@@ -2,7 +2,6 @@ package com.example.ddmopenevents2.lists;
 
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,13 +27,13 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
     }
 
     @Override
-    public EventsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public EventsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_card, parent, false);
         return new EventsHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull EventsHolder holder, int position) {
+    public void onBindViewHolder(EventsHolder holder, int position) {
         holder.setName(eventsArrayList.get(position).getName());
         holder.setStartDate(eventsArrayList.get(position).getEventStart_date());
         holder.setLocation(eventsArrayList.get(position).getLocation());
