@@ -13,10 +13,6 @@
         android:title="@string/my_events"
         android:icon="@drawable/myevents"/>
     <item
-        android:id="@+id/menu_my_timeline"
-        android:title="@string/my_timeline"
-        android:icon="@drawable/timeline"/>
-    <item
         android:id="@+id/menu_search_users"
         android:title="@string/search_users2"
         android:icon="@drawable/search"/>

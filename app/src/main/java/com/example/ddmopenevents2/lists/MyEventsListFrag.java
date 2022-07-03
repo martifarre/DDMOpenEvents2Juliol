@@ -1,4 +1,4 @@
-package com.example.ddmopenevents2;
+package com.example.ddmopenevents2.lists;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.ddmopenevents2.CreateEvent;
+import com.example.ddmopenevents2.R;
 import com.example.ddmopenevents2.business.Event;
 import com.example.ddmopenevents2.communication.OpenEventsAPI;
 import com.example.ddmopenevents2.lists.EventsAdapter;
@@ -79,14 +81,14 @@ public class MyEventsListFrag extends Fragment {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.TOKEN_SHARED), Context.MODE_PRIVATE);
         String token = sharedPreferences.getString(String.valueOf(R.string.TOKEN_TOKEN),"");
 
-        OpenEventsAPI.getInstance().getBestEvents(token, new Callback<ArrayList<Event>>() {
+        OpenEventsAPI.getInstance().getAllEvents(token, new Callback<ArrayList<Event>>() {
             @Override
             public void onResponse(Call<ArrayList<Event>> call, Response<ArrayList<Event>> response) {
                 if (response.body() != null) {
                     events.clear();
                     events.addAll(response.body());
 
-                    //filtrateMyEvents();
+                    filtrateMyEvents();
 
                     eventsAdapter.notifyDataSetChanged();
                 } else {

@@ -13,7 +13,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:id="@+id/frameLayout3"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
 
     tools:context=".DetailsEvents">
 
@@ -30,7 +30,7 @@
     <ImageView
         android:id="@+id/detailsEventImage"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsEventsTitle"
@@ -43,7 +43,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="36dp"
         android:fontFamily="@font/montserrat_alternates_medium"
-        android:text="EventTitle1"
+        android:text="@string/loading"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsEventImage" />
@@ -55,22 +55,20 @@
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat_alternates_medium"
-        android:text="EventDescription1"
+        android:text="@string/loading"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailsEventSpecificTitle" />
 
     <Button
         android:id="@+id/detailAttendButton"
-        android:layout_width="407dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="400dp"
         android:text="@string/attend"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailEventDescription"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintTop_toBottomOf="@+id/detailEventDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

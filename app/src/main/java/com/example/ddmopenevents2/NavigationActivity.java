@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ddmopenevents2.lists.EventsListFrag;
+import com.example.ddmopenevents2.lists.MyEventsListFrag;
+import com.example.ddmopenevents2.lists.SearchUserListFrag;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -52,6 +54,11 @@ public class NavigationActivity extends AppCompatActivity implements NavigationB
         if (id == R.id.menu_my_events) {
             MyEventsListFrag myEvents = new MyEventsListFrag();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_navigation, myEvents).commit();
+            return true;
+        }
+        if (id == R.id.menu_search_users) {
+            SearchUserListFrag userListFrag = new SearchUserListFrag();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_navigation, userListFrag).commit();
             return true;
         }
 

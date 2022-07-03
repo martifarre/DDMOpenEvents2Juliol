@@ -1,8 +1,10 @@
 package com.example.ddmopenevents2.communication;
 
+import com.example.ddmopenevents2.business.AssistanceResponse;
 import com.example.ddmopenevents2.business.BearerToken;
 import com.example.ddmopenevents2.business.Event;
-import com.example.ddmopenevents2.business.EventAdapted;
+import com.example.ddmopenevents2.business.EventResponse;
+import com.example.ddmopenevents2.business.EventWithCommentary;
 import com.example.ddmopenevents2.business.User;
 import com.example.ddmopenevents2.business.UserRegister;
 
@@ -67,7 +69,7 @@ public class OpenEventsAPI {
         this.openEventsInterface.getUser(tokenString, userId).enqueue(callback);
     }
 
-    public void createEvent(String token, EventAdapted eventAdapted, Callback<Event> callback){
+    public void createEvent(String token, EventResponse eventAdapted, Callback<Event> callback){
         String tokenString = "Bearer " + token;
         this.openEventsInterface.createEvent(tokenString, eventAdapted).enqueue(callback);
     }
@@ -75,6 +77,16 @@ public class OpenEventsAPI {
     public void getEventById(String token, int eventId, Callback<ArrayList<Event>> callback){
         String tokenString = "Bearer " + token;
         this.openEventsInterface.getEventById(tokenString, eventId).enqueue(callback);
+    }
+
+    public void assistEvent(String token, int eventId, Callback<AssistanceResponse> callback) {
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.assistEvent(tokenString, eventId).enqueue(callback);
+    }
+
+    public void getAssistanceByUserId(String token, int userId, Callback<ArrayList<EventWithCommentary>> callback) {
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.getAssistanceByUserId(tokenString, userId).enqueue(callback);
     }
 
 }

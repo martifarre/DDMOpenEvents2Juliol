@@ -1,6 +1,6 @@
 package com.example.ddmopenevents2.business;
 
-public class EventAdapted {
+public class EventResponse {
     private String name;
     private String image;
     private String location;

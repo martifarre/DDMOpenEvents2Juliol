@@ -14,11 +14,12 @@ public class EventsHolder extends RecyclerView.ViewHolder implements View.OnClic
     private TextView location;
 
     private ImageView image;
+    private RecyclerViewClickListener listener;
 
-    public EventsHolder(View itemView) {
+    public EventsHolder(View itemView, RecyclerViewClickListener listener) {
         super(itemView);
-
         itemView.setOnClickListener(this);
+        this.listener = listener;
 
         name = (TextView) itemView.findViewById(R.id.cardTitle);
         startDate = (TextView) itemView.findViewById(R.id.cardDate);
@@ -48,6 +49,9 @@ public class EventsHolder extends RecyclerView.ViewHolder implements View.OnClic
 
     @Override
     public void onClick(View view) {
+        if (listener != null) {
+            listener.recyclerViewListClicked(view, getBindingAdapterPosition());
+        }
     }
 
 }

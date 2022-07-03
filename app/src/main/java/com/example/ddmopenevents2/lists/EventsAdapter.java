@@ -2,7 +2,6 @@ package com.example.ddmopenevents2.lists;
 
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +18,7 @@ import java.util.ArrayList;
 public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
 
     private Context context;
+    private RecyclerViewClickListener recycleViewListener;
     private ArrayList<Event> eventsArrayList;
 
     public EventsAdapter(Context context, ArrayList<Event> eventsArrayList) {
@@ -29,7 +29,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
     @Override
     public EventsHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.event_card, parent, false);
-        return new EventsHolder(view);
+        return new EventsHolder(view, recycleViewListener);
     }
 
     @Override
@@ -39,7 +39,6 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
         holder.setLocation(eventsArrayList.get(position).getLocation());
         holder.setImage(R.drawable.default_event_img);
 
-        Log.i("image", ""+ eventsArrayList.get(position).getImage());
         try {
             Picasso.get()
                     .load(eventsArrayList.get(position).getImage())
@@ -62,5 +61,9 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsHolder> {
     @Override
     public int getItemCount() {
         return eventsArrayList.size();
+    }
+
+    public void setRecycleViewListener(RecyclerViewClickListener recycleViewListener) {
+        this.recycleViewListener = recycleViewListener;
     }
 }

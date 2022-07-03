@@ -47,5 +47,7 @@
     <string name="logout">Logout</string>
     <string name="search_users2">Search Users</string>
     <string name="users_results">Users Results:</string>
+    <string name="search">Search</string>
+    <string name="loading">Loading...</string>
     <string name="events_list">Events list:</string>
 </resources>

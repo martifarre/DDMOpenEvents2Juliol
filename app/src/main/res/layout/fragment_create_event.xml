@@ -133,7 +133,7 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="@string/select_a_date"
-        android:inputType="date"
+        android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createStartTitle" />
@@ -146,7 +146,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/select_a_date"
-        android:inputType="date"
+        android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createStartTitle2" />

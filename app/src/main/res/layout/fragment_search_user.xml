@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#8BC34A"
-    tools:context=".SearchUserFrag">
+    tools:context=".lists.SearchUserListFrag">
 
 
     <TextView
@@ -21,9 +21,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <SearchView
+    <EditText
         android:id="@+id/searchViewUsers"
-        android:layout_width="377dp"
+        android:layout_width="match_parent"
+        android:layout_marginEnd="16dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
@@ -50,5 +51,15 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchTitle2" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/search"
+        app:layout_constraintStart_toEndOf="@+id/searchTitle"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

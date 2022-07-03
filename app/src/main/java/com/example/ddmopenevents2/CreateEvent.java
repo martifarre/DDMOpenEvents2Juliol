@@ -15,12 +15,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.ddmopenevents2.business.Event;
-import com.example.ddmopenevents2.business.EventAdapted;
-import com.example.ddmopenevents2.business.User;
+import com.example.ddmopenevents2.business.EventResponse;
 import com.example.ddmopenevents2.communication.OpenEventsAPI;
-import com.squareup.picasso.Picasso;
-
-import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -76,7 +72,7 @@ public class CreateEvent extends Fragment {
     }
 
     private void saveEvent() {
-        EventAdapted eventAdapted = new EventAdapted();
+        EventResponse eventAdapted = new EventResponse();
 
         eventAdapted.setName(name.getText().toString());
         eventAdapted.setImage(image.getText().toString());
