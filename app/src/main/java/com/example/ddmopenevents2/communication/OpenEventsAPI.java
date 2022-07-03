@@ -1,8 +1,11 @@
 package com.example.ddmopenevents2.communication;
 
 import com.example.ddmopenevents2.business.BearerToken;
+import com.example.ddmopenevents2.business.Event;
 import com.example.ddmopenevents2.business.User;
 import com.example.ddmopenevents2.business.UserRegister;
+
+import java.util.ArrayList;
 
 import retrofit2.Callback;
 import retrofit2.Retrofit;
@@ -30,12 +33,17 @@ public class OpenEventsAPI {
         this.openEventsInterface = this.retrofit.create(OpenEventsInterface.class);
     }
 
-    public void loginUser (User user, Callback<BearerToken> callback) {
+    public void loginUser(User user, Callback<BearerToken> callback) {
         this.openEventsInterface.loginUser(user).enqueue(callback);
     }
 
-    public void registerUser (UserRegister user, Callback<User> callback) {
+    public void registerUser(UserRegister user, Callback<User> callback) {
         this.openEventsInterface.registerUser(user).enqueue(callback);
+    }
+
+    public void getAllEvents(BearerToken token, Callback<ArrayList<Event>> callback) {
+        String tokenString = "Bearer " + token.getAccessToken();
+        this.openEventsInterface.getAllEvents(tokenString).enqueue(callback);
     }
 
 }
