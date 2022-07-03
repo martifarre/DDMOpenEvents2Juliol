@@ -15,7 +15,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.ddmopenevents2.R;
-import com.example.ddmopenevents2.business.BearerToken;
 import com.example.ddmopenevents2.business.Event;
 import com.example.ddmopenevents2.communication.OpenEventsAPI;
 

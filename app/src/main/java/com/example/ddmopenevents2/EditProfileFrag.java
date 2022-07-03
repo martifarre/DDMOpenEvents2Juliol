@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.example.ddmopenevents2.business.User;
 import com.example.ddmopenevents2.business.UserRegister;
 import com.example.ddmopenevents2.communication.OpenEventsAPI;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
