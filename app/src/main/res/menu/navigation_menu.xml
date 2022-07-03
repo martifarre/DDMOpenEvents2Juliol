@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_my_profile"
+        android:title="@string/profile" />
+    <item
+        android:id="@+id/menu_explore_events"
+        android:title="@string/explore_events" />
+    <item
+        android:id="@+id/menu_my_events"
+        android:title="@string/my_events" />
+    <item
+        android:id="@+id/menu_my_timeline"
+        android:title="@string/my_timeline" />
+    <item
+        android:id="@+id/menu_my_messages"
+        android:title="@string/my_messages" />
+</menu>

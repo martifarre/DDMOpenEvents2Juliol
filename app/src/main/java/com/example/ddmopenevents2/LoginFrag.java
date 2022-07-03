@@ -8,6 +8,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,6 @@ public class LoginFrag extends Fragment {
         User user = new User();
         user.setPassword(editTextPassword.getText().toString());
         user.setEmail(editTextEmail.getText().toString());
-
         OpenEventsAPI.getInstance().loginUser(user, new Callback<BearerToken>() {
             @Override
             public void onResponse(Call<BearerToken> call, Response<BearerToken> response) {
@@ -51,18 +51,23 @@ public class LoginFrag extends Fragment {
                     editor.putString(String.valueOf(R.string.TOKEN_TOKEN), response.body().getAccessToken());
                     editor.apply();
 
-                    Intent intent = new Intent(getActivity(), EventsActivity.class);
+                    Toast toast = Toast.makeText(getActivity(), "Success!", Toast.LENGTH_SHORT);
+                    toast.show();
+
+                    Log.i("LOGIN-TOKEN:", response.body().getAccessToken().toString());
+
+                    Intent intent = new Intent(getActivity(), NavigationActivity.class);
                     startActivity(intent);
 
                 } else {
-                    Toast toast = Toast.makeText(getActivity(), "Wrong username or password!", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getActivity(), "Wrong username or password!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
 
             @Override
             public void onFailure(Call<BearerToken> call, Throwable t) {
-                Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_LONG);
+                Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_SHORT);
                 toast.show();
             }
         });

@@ -40,4 +40,11 @@
     <string name="save_changes">Save Changes</string>
     <string name="edit_event">Edit Event</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="profile">Profile</string>
+    <string name="explore_events">Explore Events</string>
+    <string name="my_events">My Events</string>
+    <string name="my_timeline">My Timeline</string>
+    <string name="my_messages">My Messages</string>
+    <string name="search_users">Search Users</string>
+    <string name="logout">Logout</string>
 </resources>
