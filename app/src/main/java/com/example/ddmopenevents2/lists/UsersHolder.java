@@ -4,8 +4,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.ddmopenevents2.R;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.ddmopenevents2.R;
 
 public class UsersHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
