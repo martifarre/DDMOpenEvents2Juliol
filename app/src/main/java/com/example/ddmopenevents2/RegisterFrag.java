@@ -80,17 +80,17 @@ public class RegisterFrag extends Fragment {
                 @Override
                 public void onResponse(Call<User> call, Response<User> response) {
                     if (response.body() != null) {
-                        Toast toast = Toast.makeText(getActivity(), "Registered successful, thanks!", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getActivity(), "Registered successful, thanks!", Toast.LENGTH_SHORT);
                         toast.show();
                     } else {
-                        Toast toast = Toast.makeText(getActivity(), "Error registering, make sure you have entered valid data!", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getActivity(), "Error registering, make sure you have entered valid data!", Toast.LENGTH_SHORT);
                         toast.show();
                     }
                 }
 
                 @Override
                 public void onFailure(Call<User> call, Throwable t) {
-                    Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_LONG);
+                    Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             });

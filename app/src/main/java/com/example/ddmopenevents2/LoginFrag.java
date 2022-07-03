@@ -18,8 +18,11 @@ import android.widget.Toast;
 
 import com.example.ddmopenevents2.business.BearerToken;
 import com.example.ddmopenevents2.business.User;
+import com.example.ddmopenevents2.business.UserRegister;
 import com.example.ddmopenevents2.communication.OpenEventsAPI;
 import com.example.ddmopenevents2.communication.OpenEventsInterface;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,6 +59,8 @@ public class LoginFrag extends Fragment {
 
                     Log.i("LOGIN-TOKEN:", response.body().getAccessToken().toString());
 
+                    saveUserId();
+
                     Intent intent = new Intent(getActivity(), NavigationActivity.class);
                     startActivity(intent);
 
@@ -67,6 +72,38 @@ public class LoginFrag extends Fragment {
 
             @Override
             public void onFailure(Call<BearerToken> call, Throwable t) {
+                Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+    }
+
+    private void saveUserId() {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.TOKEN_SHARED), Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString(String.valueOf(R.string.TOKEN_TOKEN),"");
+
+        OpenEventsAPI.getInstance().    getAllUsers(token, new Callback<ArrayList<User>>() {
+            @Override
+            public void onResponse(Call<ArrayList<User>> call, Response<ArrayList<User>> response) {
+                if (response.body() != null) {
+                    for (User user : response.body()) {
+                        if (user.getEmail().equals(editTextEmail.getText().toString())) {
+                            SharedPreferences sharedPrefs;
+                            SharedPreferences.Editor editor;
+                            sharedPrefs = getActivity().getSharedPreferences(String.valueOf(R.string.TOKEN_SHARED), Context.MODE_PRIVATE);
+
+                            editor = sharedPrefs.edit();
+                            editor.putInt(String.valueOf(R.string.TOKEN_ID), user.getId());
+                            editor.apply();
+
+                            Log.i("LOGIN-USER-ID:", "" + user.getId());
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ArrayList<User>> call, Throwable t) {
                 Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_SHORT);
                 toast.show();
             }

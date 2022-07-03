@@ -12,6 +12,8 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
 
 public interface OpenEventsInterface {
     @POST("users/login/")
@@ -22,4 +24,13 @@ public interface OpenEventsInterface {
 
     @GET("events/")
     Call<ArrayList<Event>> getAllEvents(@Header("Authorization") String token);
+
+    @GET("users/")
+    Call<ArrayList<User>> getAllUsers(@Header("Authorization") String token);
+
+    @PUT("users")
+    Call<User> editUserProfile(@Header("Authorization") String token, @Body UserRegister userRegister);
+
+    @GET("users/{id}")
+    Call<ArrayList<User>> getUser(@Header("Authorization") String token, @Path("id") int userId);
 }

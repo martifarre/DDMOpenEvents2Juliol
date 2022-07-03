@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
         editor = sharedPrefs.edit();
         editor.putString(String.valueOf(R.string.TOKEN_TOKEN), "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTgxOCwibmFtZSI6Ik1hcnRpIiwibGFzdF9uYW1lIjoiRmFycmUgVHJ1amlsbG8iLCJlbWFpbCI6Im1hcnRpQGdtYWlsLmNvbSIsImltYWdlIjoiaHR0cHM6Ly9pLmltZ3VyLmNvbS9naHk4WHgxLnBuZyJ9.eCx7HYylVmHLXFlUn6JNxqmM4xo2BD4UPrriGMlwlPM");
+        editor.putInt(String.valueOf(R.string.TOKEN_ID), 1818);
         editor.apply();
 
         Intent intent = new Intent(this, NavigationActivity.class);

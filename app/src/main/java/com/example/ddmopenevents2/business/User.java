@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class User implements Serializable {
     private int id;
     private String name;
-    private String surname;
+    private String last_name;
     private String email;
     private String password;
     private String image;
@@ -13,7 +13,7 @@ public class User implements Serializable {
     public User(int id, String name, String surname, String email, String password, String image) {
         this.id = id;
         this.name = name;
-        this.surname = surname;
+        this.last_name = surname;
         this.email = email;
         this.password = password;
         this.image = image;
@@ -39,11 +39,11 @@ public class User implements Serializable {
     }
 
     public String getSurname() {
-        return surname;
+        return last_name;
     }
 
     public void setSurname(String surname) {
-        this.surname = surname;
+        this.last_name = surname;
     }
 
     public String getEmail() {

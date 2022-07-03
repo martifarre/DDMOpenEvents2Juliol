@@ -41,9 +41,24 @@ public class OpenEventsAPI {
         this.openEventsInterface.registerUser(user).enqueue(callback);
     }
 
-    public void getAllEvents(BearerToken token, Callback<ArrayList<Event>> callback) {
-        String tokenString = "Bearer " + token.getAccessToken();
+    public void getAllEvents(String token, Callback<ArrayList<Event>> callback) {
+        String tokenString = "Bearer " + token;
         this.openEventsInterface.getAllEvents(tokenString).enqueue(callback);
+    }
+
+    public void editUserProfile(String token, UserRegister userRegister, Callback<User> callback) {
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.editUserProfile(tokenString, userRegister).enqueue(callback);
+    }
+
+    public void getAllUsers(String token, Callback<ArrayList<User>> callback) {
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.getAllUsers(tokenString).enqueue(callback);
+    }
+
+    public void getUser(String token, int userId, Callback<ArrayList<User>> callback){
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.getUser(tokenString, userId).enqueue(callback);
     }
 
 }

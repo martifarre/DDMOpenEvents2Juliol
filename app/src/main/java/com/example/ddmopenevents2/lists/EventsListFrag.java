@@ -58,9 +58,8 @@ public class EventsListFrag extends Fragment {
     }
 
     private void getAndSetEvents() {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
-
-        BearerToken token = new BearerToken(sharedPreferences.getString(String.valueOf(R.string.TOKEN_TOKEN),""));
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.TOKEN_SHARED), Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString(String.valueOf(R.string.TOKEN_TOKEN),"");
 
         OpenEventsAPI.getInstance().getAllEvents(token, new Callback<ArrayList<Event>>() {
             @Override
