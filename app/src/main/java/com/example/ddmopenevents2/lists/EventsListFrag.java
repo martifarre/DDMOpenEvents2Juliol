@@ -52,12 +52,12 @@ public class EventsListFrag extends Fragment {
         eventsAdapter = new EventsAdapter(getContext(), events);
         recyclerView.setAdapter(eventsAdapter);
 
-        getEventsListAPI();
+        getAndSetEvents();
 
         return view;
     }
 
-    public void getEventsListAPI() {
+    private void getAndSetEvents() {
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("TOKEN", Context.MODE_PRIVATE);
 
         BearerToken token = new BearerToken(sharedPreferences.getString(String.valueOf(R.string.TOKEN_TOKEN),""));
@@ -68,6 +68,9 @@ public class EventsListFrag extends Fragment {
                 if (response.body() != null) {
                     events.clear();
                     events.addAll(response.body());
+
+                    orderEventsList();
+
                     eventsAdapter.notifyDataSetChanged();
                 } else {
                     Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_SHORT);
@@ -80,5 +83,9 @@ public class EventsListFrag extends Fragment {
                 Log.i("GET","EXPLORE EVENTS KO!");
             }
         });
+    }
+
+    private void orderEventsList() {
+
     }
 }

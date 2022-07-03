@@ -2,17 +2,22 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/menu_my_profile"
-        android:title="@string/profile" />
+        android:title="@string/profile"
+        android:icon="@drawable/profile"/>
     <item
         android:id="@+id/menu_explore_events"
-        android:title="@string/explore_events" />
+        android:title="@string/explore_events"
+        android:icon="@drawable/events"/>
     <item
         android:id="@+id/menu_my_events"
-        android:title="@string/my_events" />
+        android:title="@string/my_events"
+        android:icon="@drawable/myevents"/>
     <item
         android:id="@+id/menu_my_timeline"
-        android:title="@string/my_timeline" />
+        android:title="@string/my_timeline"
+        android:icon="@drawable/timeline"/>
     <item
-        android:id="@+id/menu_my_messages"
-        android:title="@string/my_messages" />
+        android:id="@+id/menu_search_users"
+        android:title="@string/search_users2"
+        android:icon="@drawable/search"/>
 </menu>
