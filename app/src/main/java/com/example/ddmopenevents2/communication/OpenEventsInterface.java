@@ -2,6 +2,7 @@ package com.example.ddmopenevents2.communication;
 
 import com.example.ddmopenevents2.business.BearerToken;
 import com.example.ddmopenevents2.business.Event;
+import com.example.ddmopenevents2.business.EventAdapted;
 import com.example.ddmopenevents2.business.User;
 import com.example.ddmopenevents2.business.UserRegister;
 
@@ -25,6 +26,9 @@ public interface OpenEventsInterface {
     @GET("events/")
     Call<ArrayList<Event>> getAllEvents(@Header("Authorization") String token);
 
+    @GET("events/best/")
+    Call<ArrayList<Event>> getBestEvents(@Header("Authorization") String token);
+
     @GET("users/")
     Call<ArrayList<User>> getAllUsers(@Header("Authorization") String token);
 
@@ -33,4 +37,10 @@ public interface OpenEventsInterface {
 
     @GET("users/{id}")
     Call<ArrayList<User>> getUser(@Header("Authorization") String token, @Path("id") int userId);
+
+    @POST("events/")
+    Call<Event> createEvent(@Header("Authorization") String token, @Body EventAdapted eventAdapted);
+
+    @GET("events/{id}")
+    Call<ArrayList<Event>> getEventById(@Header("Authorization") String token, @Path("id") int eventId);
 }

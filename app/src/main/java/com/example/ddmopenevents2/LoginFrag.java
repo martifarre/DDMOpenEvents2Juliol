@@ -131,9 +131,8 @@ public class LoginFrag extends Fragment {
             @Override
             public void onClick(View v){
                 FragmentManager manager = getActivity().getSupportFragmentManager();
-                Fragment fragment = manager.findFragmentById(R.id.toPopulateWithFragment);
-                    fragment = new RegisterFrag();
-                    manager.beginTransaction().replace(R.id.toPopulateWithFragment, fragment).addToBackStack(null).commit();
+                Fragment fragment = new RegisterFrag();
+                manager.beginTransaction().replace(R.id.toPopulateWithFragment, fragment).addToBackStack(null).commit();
             }
         });
 

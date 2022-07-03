@@ -1,5 +1,7 @@
 package com.example.ddmopenevents2;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,58 +9,112 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CreateEvent#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.ddmopenevents2.business.Event;
+import com.example.ddmopenevents2.business.EventAdapted;
+import com.example.ddmopenevents2.business.User;
+import com.example.ddmopenevents2.communication.OpenEventsAPI;
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class CreateEvent extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private EditText name;
+    private EditText image;
+    private EditText location;
+    private EditText description;
+    private EditText eventStart_date;
+    private EditText eventEnd_date;
+    private EditText n_participators;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Spinner type;
+
+    private Button createEventButton;
 
     public CreateEvent() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment create_event.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CreateEvent newInstance(String param1, String param2) {
-        CreateEvent fragment = new CreateEvent();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_create_event, container, false);
+        View view =  inflater.inflate(R.layout.fragment_create_event, container, false);
+
+        createEventButton = view.findViewById(R.id.createEventsButton);
+
+        name = view.findViewById(R.id.createTitleEdit);
+        image = view.findViewById(R.id.createImageEditText);
+        location = view.findViewById(R.id.editTextTextPersonName4);
+        description = view.findViewById(R.id.createDescriptionEdit);
+        eventStart_date = view.findViewById(R.id.createEditTextDate);
+        eventEnd_date = view.findViewById(R.id.editTextDate2);
+        n_participators = view.findViewById(R.id.editTextNumber3);
+
+        type = view.findViewById(R.id.spinner1);
+
+        createEventButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                saveEvent();
+            }
+        });
+
+        return view;
+    }
+
+    private void saveEvent() {
+        EventAdapted eventAdapted = new EventAdapted();
+
+        eventAdapted.setName(name.getText().toString());
+        eventAdapted.setImage(image.getText().toString());
+        eventAdapted.setLocation(location.getText().toString());
+        eventAdapted.setDescription(description.getText().toString());
+        eventAdapted.setEventStart_date(eventStart_date.getText().toString());
+        eventAdapted.setEventEnd_date(eventEnd_date.getText().toString());
+
+        String participants = "";
+
+        if (n_participators.getText().toString().equals("")) {
+            participants = "1";
+        } else {
+            participants = n_participators.getText().toString();
+        }
+        eventAdapted.setN_participators(Integer.parseInt(participants));
+        eventAdapted.setType(type.getSelectedItem().toString());
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(String.valueOf(R.string.TOKEN_SHARED), Context.MODE_PRIVATE);
+        String token = sharedPreferences.getString(String.valueOf(R.string.TOKEN_TOKEN),"");
+
+        OpenEventsAPI.getInstance().createEvent(token, eventAdapted, new Callback<Event>() {
+            @Override
+            public void onResponse(Call<Event> call, Response<Event> response) {
+                if (response.body() != null) {
+                    Toast toast = Toast.makeText(getActivity(), "Event created successfully", Toast.LENGTH_SHORT);
+                    toast.show();
+                } else {
+                    Toast toast = Toast.makeText(getActivity(), "Cannot create event, please check input data!", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Event> call, Throwable t) {
+                Toast toast = Toast.makeText(getActivity(), "Error accessing API!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
     }
 }

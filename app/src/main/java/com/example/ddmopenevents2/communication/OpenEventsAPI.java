@@ -2,6 +2,7 @@ package com.example.ddmopenevents2.communication;
 
 import com.example.ddmopenevents2.business.BearerToken;
 import com.example.ddmopenevents2.business.Event;
+import com.example.ddmopenevents2.business.EventAdapted;
 import com.example.ddmopenevents2.business.User;
 import com.example.ddmopenevents2.business.UserRegister;
 
@@ -46,6 +47,11 @@ public class OpenEventsAPI {
         this.openEventsInterface.getAllEvents(tokenString).enqueue(callback);
     }
 
+    public void getBestEvents(String token, Callback<ArrayList<Event>> callback) {
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.getBestEvents(tokenString).enqueue(callback);
+    }
+
     public void editUserProfile(String token, UserRegister userRegister, Callback<User> callback) {
         String tokenString = "Bearer " + token;
         this.openEventsInterface.editUserProfile(tokenString, userRegister).enqueue(callback);
@@ -59,6 +65,16 @@ public class OpenEventsAPI {
     public void getUser(String token, int userId, Callback<ArrayList<User>> callback){
         String tokenString = "Bearer " + token;
         this.openEventsInterface.getUser(tokenString, userId).enqueue(callback);
+    }
+
+    public void createEvent(String token, EventAdapted eventAdapted, Callback<Event> callback){
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.createEvent(tokenString, eventAdapted).enqueue(callback);
+    }
+
+    public void getEventById(String token, int eventId, Callback<ArrayList<Event>> callback){
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.getEventById(tokenString, eventId).enqueue(callback);
     }
 
 }

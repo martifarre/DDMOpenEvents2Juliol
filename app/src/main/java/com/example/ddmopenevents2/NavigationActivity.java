@@ -31,7 +31,7 @@ public class NavigationActivity extends AppCompatActivity implements NavigationB
         setContentView(R.layout.activity_navigation);
         navigationView = findViewById(R.id.container);
         navigationView.setOnItemSelectedListener(this);
-        navigationView.setSelectedItemId(R.id.menu_explore_events);
+        navigationView.setSelectedItemId(R.id.menu_my_profile);
     }
 
     @Override
@@ -47,6 +47,11 @@ public class NavigationActivity extends AppCompatActivity implements NavigationB
         if (id == R.id.menu_explore_events) {
             EventsListFrag eventsListFrag = new EventsListFrag();
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_navigation, eventsListFrag).commit();
+            return true;
+        }
+        if (id == R.id.menu_my_events) {
+            MyEventsListFrag myEvents = new MyEventsListFrag();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_navigation, myEvents).commit();
             return true;
         }
 
