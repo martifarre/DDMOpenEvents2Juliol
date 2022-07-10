@@ -15,11 +15,12 @@ public class UsersHolder extends RecyclerView.ViewHolder implements View.OnClick
     private TextView email;
 
     private ImageView image;
+    private RecyclerViewClickListener listener;
 
-    public UsersHolder(View itemView) {
+    public UsersHolder(View itemView, RecyclerViewClickListener listener) {
         super(itemView);
-
         itemView.setOnClickListener(this);
+        this.listener = listener;
 
         name = (TextView) itemView.findViewById(R.id.userName);
         surname = (TextView) itemView.findViewById(R.id.userLastName);
@@ -49,6 +50,8 @@ public class UsersHolder extends RecyclerView.ViewHolder implements View.OnClick
 
     @Override
     public void onClick(View view) {
+        if (listener != null) {
+            listener.recyclerViewListClicked(view, getBindingAdapterPosition());
+        }
     }
-
 }

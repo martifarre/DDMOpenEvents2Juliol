@@ -49,6 +49,9 @@ public interface OpenEventsInterface {
     @POST("events/{id}/assistances")
     Call<AssistanceResponse> assistEvent(@Header("Authorization") String token, @Path("id") int id);
 
-    @GET("/users/{id}/assistances")
+    @GET("users/{id}/assistances")
     Call<ArrayList<EventWithCommentary>> getAssistanceByUserId(@Header("Authorization") String token, @Path("id") int id);
+
+    @GET("users/{id}")
+    Call<ArrayList<User>> getUserById(@Header("Authorization") String token, @Path("id") int dataUserId);
 }

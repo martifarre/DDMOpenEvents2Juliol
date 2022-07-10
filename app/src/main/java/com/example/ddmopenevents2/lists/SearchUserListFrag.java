@@ -11,9 +11,12 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ddmopenevents2.DetailsEvents;
+import com.example.ddmopenevents2.DetailsUser;
 import com.example.ddmopenevents2.R;
 import com.example.ddmopenevents2.business.User;
 import com.example.ddmopenevents2.communication.OpenEventsAPI;
@@ -24,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class SearchUserListFrag extends Fragment {
+public class SearchUserListFrag extends Fragment implements RecyclerViewClickListener {
 
     private ArrayList<User> users;
     private UsersAdapter usersAdapter;
@@ -54,6 +57,7 @@ public class SearchUserListFrag extends Fragment {
         users = new ArrayList<User>();
         usersAdapter = new UsersAdapter(getContext(), users);
         recyclerView.setAdapter(usersAdapter);
+        usersAdapter.setRecycleViewListener(this);
 
         getAndSetUsers();
 
@@ -83,5 +87,14 @@ public class SearchUserListFrag extends Fragment {
                 Log.i("GET","EXPLORE EVENTS KO!");
             }
         });
+    }
+
+    @Override
+    public void recyclerViewListClicked(View v, int position) {
+        int userId = users.get(position).getId();
+
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        Fragment fragment = new DetailsUser(userId);
+        manager.beginTransaction().replace(R.id.fragment_navigation, fragment).addToBackStack(null).commit();
     }
 }

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ddmopenevents2.CreateEvent;
+import com.example.ddmopenevents2.DetailsEvents;
 import com.example.ddmopenevents2.R;
 import com.example.ddmopenevents2.business.Event;
 import com.example.ddmopenevents2.communication.OpenEventsAPI;
@@ -26,7 +27,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MyEventsListFrag extends Fragment {
+public class MyEventsListFrag extends Fragment implements RecyclerViewClickListener  {
 
     private ArrayList<Event> events;
     private EventsAdapter eventsAdapter;
@@ -63,6 +64,7 @@ public class MyEventsListFrag extends Fragment {
         events = new ArrayList<Event>();
         eventsAdapter = new EventsAdapter(getContext(), events);
         recyclerView.setAdapter(eventsAdapter);
+        eventsAdapter.setRecycleViewListener(this);
 
         getAndSetEvents();
 
@@ -114,5 +116,14 @@ public class MyEventsListFrag extends Fragment {
         }
         events.clear();
         events.addAll(eventsFiltrated);
+    }
+
+    @Override
+    public void recyclerViewListClicked(View v, int position) {
+        int eventId = events.get(position).getId();
+
+        FragmentManager manager = getActivity().getSupportFragmentManager();
+        Fragment fragment = new DetailsEvents(eventId);
+        manager.beginTransaction().replace(R.id.fragment_navigation, fragment).addToBackStack(null).commit();
     }
 }

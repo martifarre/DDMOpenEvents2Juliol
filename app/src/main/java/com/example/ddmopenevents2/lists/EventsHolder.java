@@ -54,5 +54,4 @@ public class EventsHolder extends RecyclerView.ViewHolder implements View.OnClic
             listener.recyclerViewListClicked(view, getBindingAdapterPosition());
         }
     }
-
 }

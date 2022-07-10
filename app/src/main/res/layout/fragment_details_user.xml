@@ -15,20 +15,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
 
-    tools:context=".DetailsEvents">
+    tools:context=".DetailsUser">
 
     <TextView
         android:id="@+id/detailsEventsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/montserrat_alternates_medium"
-        android:text="@string/events"
+        android:text="@string/user_data"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/detailsEventImage"
+        android:id="@+id/detailsUserImage"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -37,20 +37,20 @@
         tools:src="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/detailsEventSpecificTitle"
+        android:id="@+id/detailsUserSpecificTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:fontFamily="@font/montserrat_alternates_medium"
         android:text="@string/loading"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsEventImage" />
+        app:layout_constraintTop_toBottomOf="@+id/detailsUserImage" />
 
     <TextView
-        android:id="@+id/detailEventDescription"
+        android:id="@+id/detailUserDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -59,20 +59,7 @@
         android:fontFamily="@font/montserrat_alternates_medium"
         android:text="@string/loading"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsEventSpecificTitle" />
-
-    <Button
-        android:id="@+id/detailAttendButton"
-        android:text="@string/attend"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailEventDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/detailsUserSpecificTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

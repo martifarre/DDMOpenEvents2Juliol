@@ -89,4 +89,9 @@ public class OpenEventsAPI {
         this.openEventsInterface.getAssistanceByUserId(tokenString, userId).enqueue(callback);
     }
 
+    public void getUserById(String token, int dataUserId, Callback<ArrayList<User>> callback){
+        String tokenString = "Bearer " + token;
+        this.openEventsInterface.getUserById(tokenString, dataUserId).enqueue(callback);
+    }
+
 }

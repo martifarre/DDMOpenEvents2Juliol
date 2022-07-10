@@ -18,6 +18,7 @@ import java.util.ArrayList;
 public class UsersAdapter extends RecyclerView.Adapter<UsersHolder> {
 
     private Context context;
+    private RecyclerViewClickListener recycleViewListener;
     private ArrayList<User> userArrayList;
 
     public UsersAdapter(Context context, ArrayList<User> userArrayList) {
@@ -28,7 +29,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersHolder> {
     @Override
     public UsersHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_card, parent, false);
-        return new UsersHolder(view);
+        return new UsersHolder(view, recycleViewListener);
     }
 
     @Override
@@ -60,5 +61,9 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersHolder> {
     @Override
     public int getItemCount() {
         return userArrayList.size();
+    }
+
+    public void setRecycleViewListener(RecyclerViewClickListener recycleViewListener) {
+        this.recycleViewListener = recycleViewListener;
     }
 }

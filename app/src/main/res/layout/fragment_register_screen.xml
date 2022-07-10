@@ -44,10 +44,11 @@
 
         <EditText
             android:id="@+id/registerPasswordEditText1"
-            android:layout_width="232dp"
             android:layout_height="48dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/round_rect_shape"
             android:ems="10"
             android:hint="@string/your_password"
@@ -70,9 +71,10 @@
 
         <EditText
             android:id="@+id/registeremailEditText"
-            android:layout_width="245dp"
             android:layout_height="48dp"
-            android:layout_marginStart="56dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/round_rect_shape"
             android:ems="10"
@@ -95,10 +97,11 @@
 
         <EditText
             android:id="@+id/registerFirstNameEditText"
-            android:layout_width="241dp"
             android:layout_height="48dp"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/round_rect_shape"
             android:ems="10"
 
@@ -121,10 +124,11 @@
 
         <EditText
             android:id="@+id/replaceTextTextPersonName3"
-            android:layout_width="237dp"
             android:layout_height="48dp"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/round_rect_shape"
             android:ems="10"
 
@@ -169,9 +173,10 @@
 
         <EditText
             android:id="@+id/registerProfilePictureEditText"
-            android:layout_width="242dp"
-            android:layout_height="51dp"
-            android:layout_marginStart="48dp"
+            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/round_rect_shape"
             android:ems="10"
@@ -183,10 +188,11 @@
 
         <EditText
             android:id="@+id/registerPasswordEditText2"
-            android:layout_width="233dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="60dp"
-            android:layout_marginTop="4dp"
+            android:layout_height="48dp"
+            android:layout_width="match_parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="12dp"
 
             android:background="@drawable/round_rect_shape"
             android:ems="10"
